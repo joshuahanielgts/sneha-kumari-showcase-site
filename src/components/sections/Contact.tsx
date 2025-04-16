@@ -11,6 +11,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { GradientText } from "@/components/ui/gradient-text";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters."),
@@ -45,7 +46,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="py-20 bg-black/30">
       <div className="max-w-4xl mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0 }}
@@ -54,7 +55,9 @@ export function Contact() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-2 text-white">Get In Touch</h2>
+          <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-2 text-white">
+            Get <GradientText>In Touch</GradientText>
+          </h2>
           <div className="w-20 h-1 gradient-purple mx-auto mb-8"></div>
           
           <Card className="glass-card">
@@ -118,7 +121,7 @@ export function Contact() {
                   
                   <div className="text-center pt-4">
                     <Button 
-                      className="gradient-purple" 
+                      className="gradient-purple w-full sm:w-auto px-8" 
                       type="submit" 
                       disabled={isSubmitting}
                     >
